@@ -4,30 +4,29 @@ import java.util.Scanner;
 
 public class ProgramaPrincipal {
 
-	public static void main(String[] args) {
-		
-		Scanner entrada = new Scanner(System.in);
-		System.out.println("Insira a medida da largura do retângulo: ");
-		double largura = entrada.nextDouble();
-		System.out.println("Insira a medida da altura do retângulo: ");
-		double altura = entrada.nextDouble();
-		Retangulo A = new Retangulo (largura, altura);
-		
-		System.out.println("A area do retângulo é : "+ A.calculaArea());
-		System.out.println("O perímetro do retângulo é : "+A.calculaPerimetro());
-		
-		Retangulo retang = new Retangulo(12,7);
-		retang.descricao();
-		System.out.println("A area do retângulo é : "+ retang.calculaArea());
-		System.out.println("O perímetro do retângulo é : "+retang.calculaPerimetro());
-			
-		System.out.println("Insira a medida do raio da circunferência: ");
-		double raio = entrada.nextDouble();
-		Circunferencia X = new Circunferencia (raio);
-		System.out.println("A area da circunferencia é : "+X.calculaArea());
-		System.out.println("O perímetro da circunferencia é : "+X.calculaPerimetro());
-		entrada.close();
-	}
+    public static void main(String[] args) {
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.print("Insira a medida da largura do retângulo: ");
+            double largura = scanner.nextDouble();
 
+            System.out.print("Insira a medida da altura do retângulo: ");
+            double altura = scanner.nextDouble();
+
+            Retangulo retanguloCriado = new Retangulo(largura, altura);
+            System.out.printf("A Área do retângulo é: %.2f%n", retanguloCriado.calculaArea());
+            System.out.printf("O perímetro do retângulo é: %.2f%n%n", retanguloCriado.calculaPerimetro());
+
+            Retangulo retanguloExemplo = new Retangulo(12, 7);
+            retanguloExemplo.descricao();
+            System.out.printf("A Área do retângulo exemplo: %.2f%n", retanguloExemplo.calculaArea());
+            System.out.printf("O perímetro do retângulo exemplo: %.2f%n%n", retanguloExemplo.calculaPerimetro());
+
+            System.out.print("Insira a medida do raio da circunferência: ");
+            double raio = scanner.nextDouble();
+
+            Circunferencia circunferenciaCriada = new Circunferencia(raio);
+            System.out.printf("A área da circunferência é: %.2f%n", circunferenciaCriada.calculaArea());
+            System.out.printf("O perímetro da circunferência é: %.2f%n", circunferenciaCriada.calculaPerimetro());
+        }
+    }
 }
-
